@@ -23,6 +23,11 @@ connection.connect((err) => {
 });
 
 
+//フォーム取得
+app.use(express.urlencoded({extended: false}));
+
+
+
 app.use(express.static('public'));
 
 
