@@ -50,9 +50,13 @@ app.get('/new',(req,res)=>{
 })
 
 app.post('/create',(req,res)=>{
-  connection.query('INSERT INTO items(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)', 
+  connection.query('INSERT INTO items(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES(?)',
+  [req.body.pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend],
   (error,results)=>{
-    res.render('phone_list.ejs')
+    connection.query('SELECT*FROM items',(error,results)=>{
+      res.render('phone_list.ejs')
+    })
+    
   })
 });
 
