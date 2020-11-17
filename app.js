@@ -62,8 +62,8 @@ app.post('/create',(req,res)=>{
 
 
 //管理データ削除
-app.post('/delete',(req,res)=>{
-  
+app.post('/delete:id',(req,res)=>{
+  res.redirect('/phone_list')
 })
 
 

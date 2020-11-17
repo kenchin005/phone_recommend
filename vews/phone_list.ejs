@@ -9,11 +9,11 @@
 <body>
     
     <% items.forEach(item)=>{%>
-        <span><%= {item.name} %></span>
+        <span><%= item.name %></span>
 
     } %>
 
-    <form action="/delete" method="post">
+    <form action="/delete/<%= item.id" method="post">
         <input type="submit" value="削除">
     </form>
 
