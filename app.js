@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: ''
+  database: 'phone_db'
 });
 
 //接続できなかったらエラーを返す
