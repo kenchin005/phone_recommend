@@ -46,9 +46,9 @@ app.get('/',(req,res)=>{
 // });
 
 //リストから新規機種登録
-// app.get('/new',(req,res)=>{
-//   res.render('new.ejs')
-// })
+app.get('/new',(req,res)=>{
+  res.render('new.ejs')
+})
 
 // app.post('/create',(req,res)=>{
 //   connection.query('INSERT INTO items(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES(?)',
