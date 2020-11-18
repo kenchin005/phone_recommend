@@ -4,23 +4,23 @@ const express = require('express');
 const app = express();
 
 //SQL接続
-// const mysql = require('mysql');
+const mysql = require('mysql');
 
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//  password: '',
-//  database: 'phone_db'
-// });
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+ password: '',
+ database: 'phone_db'
+});
 
 // 接続できなかったらエラーを返す
-// connection.connect((err) => {
-//  if (err) {
-//    console.log('error connecting: ' + err.stack);
-//    return;
-//  }
-//  console.log('success');
-// });
+connection.connect((err) => {
+ if (err) {
+   console.log('error connecting: ' + err.stack);
+   return;
+ }
+ console.log('success');
+});
 
 
 //フォーム取得
@@ -40,7 +40,7 @@ app.get('/',(req,res)=>{
 
 //list
 // app.get('/phone_list', (req, res) => {
-//   connection.query('SELECT*FROM items',(error,results)=>{
+//   connection.query('SELECT*FROM phone_table',(error,results)=>{
 //     res.render('phone_list.ejs',{items: results})
 //   })
 // });
@@ -51,8 +51,8 @@ app.get('/new',(req,res)=>{
 })
 
 // app.post('/create',(req,res)=>{
-//   connection.query('INSERT INTO items(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES(?)',
-//   [req.body.pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend],
+//   connection.query('INSERT INTO phone_table(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES(?),(?),(?),(?),(?),(?),(?),(?),(?),(?)',
+//   [req.body.pict,req.body.phoneName,req.body.size,req.body.gaso,req.body.battery,req.body.IPX,req.body.movieSize,req.body.other,req.body.Recommend],
 //   (error,results)=>{
    
 //       res.redirect('/phone_list');

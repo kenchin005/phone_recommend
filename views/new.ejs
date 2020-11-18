@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,30 @@
 <form action="/create" method="POST">
 
         <input type="file" name="pict" id="">
+            <p>・機種名</p>
         <input type="text" name="phoneName" id="">
+            <p>・サイズ</p>
         <input type="text" name="size" id="">
+            <p>・画素数</p>
         <input type="text" name="gaso" id="">
+            <p>・機種名</p>
         <input type="text" name="battery" id="">
+            <p>・バッテリー</p>
         <input type="text" name="IPX" id="">
+            <p>・防塵/防水</p>
         <input type="text" name="movieSize" id="">
+            <p>・動画サイズ</p>
         <input type="text" name="other" id="">
-
+            <p>・その他</p>
 
         <!-- この要素で検索をかける -->
-        <input type="text" name="Recommend" id="">
+            <p>・特におすすめの機能カテゴリ</p>
+        <select name="Recommend" id="">
+            <option value="カメラ">カメラ</option>
+            <option value="動画">動画</option>
+            <option value="ゲーム">ゲーム</option>
+            <option value="ネット">ネット</option>
+        </select>
         <!--  -->
 
     <input type="submit" value="登録">
