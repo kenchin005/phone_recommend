@@ -41,7 +41,7 @@ app.get('/',(req,res)=>{
 //list
 // app.get('/phone_list', (req, res) => {
 //   connection.query('SELECT*FROM phone_table',(error,results)=>{
-//     res.render('phone_list.ejs',{items: results})
+//     res.render('phone_list.ejs',{phone_table: results})
 //   })
 // });
 
