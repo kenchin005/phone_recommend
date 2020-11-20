@@ -3,8 +3,8 @@ const express = require('express');
 //expressモジュールを利用しアプリケーションオブジェクトappを作成
 const app = express();
 
-var  multer   =  require('multer')
-var  upload  =  multer({  dest:'uploads /'  } )
+// var  multer   =  require('multer')
+// var  upload  =  multer({dest:'uploads /'} )
 
 
 
@@ -31,7 +31,7 @@ connection.connect((err) => {
 
 
 //フォーム取得
-// app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
 
 
 
@@ -57,16 +57,24 @@ app.get('/new',(req,res)=>{
   res.render('new.ejs')
 })
 
-// app.post('/create',(req,res)=>{
-//   connection.query('INSERT INTO phone_table(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES(?),(?),(?),(?),(?),(?),(?),(?),(?),(?)',
-//   [req.body.pict,req.body.phoneName,req.body.size,req.body.gaso,req.body.battery,req.body.IPX,req.body.movieSize,req.body.other,req.body.Recommend],
-//   (error,results)=>{
+
+//携帯リスト
+app.get('/phone_list',(req,res)=>{
+  res.render('phone_list.ejs')
+})
+
+
+
+app.post('/uploads',(req,res)=>{
+  connection.query('INSERT INTO phone_table(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES(?),(?),(?),(?),(?),(?),(?),(?),(?),(?)',
+  [req.body.pict,req.body.phoneName,req.body.size,req.body.gaso,req.body.battery,req.body.IPX,req.body.movieSize,req.body.other,req.body.Recommend],
+  (error,results)=>{
    
-//       res.redirect('/phone_list');
+      res.redirect('/phone_list');
     
     
-//   })
-// });
+  })
+});
 
 
 //管理データ削除
