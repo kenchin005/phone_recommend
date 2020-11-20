@@ -3,6 +3,13 @@ const express = require('express');
 //expressモジュールを利用しアプリケーションオブジェクトappを作成
 const app = express();
 
+var  multer   =  require('multer')
+var  upload  =  multer({  dest:'uploads /'  } )
+
+
+
+
+
 //SQL接続
 const mysql = require('mysql');
 
