@@ -66,11 +66,24 @@ app.get('/phone_list',(req,res)=>{
 
 
 app.post('/uploads',(req,res)=>{
-  connection.query('INSERT INTO phone_table(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES(?),(?),(?),(?),(?),(?),(?),(?),(?),(?)',
-  [req.body.pict,req.body.phoneName,req.body.size,req.body.gaso,req.body.battery,req.body.IPX,req.body.movieSize,req.body.other,req.body.Recommend],
+  
+  var pict = req.body.pict
+  var phoneName = req.body.phoneName
+  var size = req.body.size
+  var gaso = req.body.gaso
+  var battery = req.body.battery
+  var IPX = req.body.IPX
+  var movieSize = req.body.movieSize
+  var other = req.body.other
+  var Recommend = req.body.Recommend
+
+
+  connection.query('INSERT INTO phone_table(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES("'+ pict +'","'+ phoneName +'","'+ size +'""'+ gaso +'","'+ battery +'","'+ IPX +'","'+ movieSize +'","'+ other +'",)',
+  
   (error,results)=>{
    
-      res.redirect('/phone_list');
+
+    console.log(results);
     
     
   })
