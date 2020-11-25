@@ -63,31 +63,40 @@ app.get('/phone_list',(req,res)=>{
   res.render('phone_list.ejs')
 })
 
-
-
+//インサートテスト
 app.post('/uploads',(req,res)=>{
-  
-  var pict = req.body.pict
-  var phoneName = req.body.phoneName
-  var size = req.body.size
-  var gaso = req.body.gaso
-  var battery = req.body.battery
-  var IPX = req.body.IPX
-  var movieSize = req.body.movieSize
-  var other = req.body.other
-  var Recommend = req.body.Recommend
-
-
-  connection.query('INSERT INTO phone_table(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES("'+ pict +'","'+ phoneName +'","'+ size +'""'+ gaso +'","'+ battery +'","'+ IPX +'","'+ movieSize +'","'+ other +'","'+ Recommend +'")',
-  
+  connection.query('INSERT INTO test_table(text)VALUES(?)'),
   (error,results)=>{
+    console.log(results);
+  }
+})
+
+
+
+
+// app.post('/uploads',(req,res)=>{
+  
+//   var pict = req.body.pict
+//   var phoneName = req.body.phoneName
+//   var size = req.body.size
+//   var gaso = req.body.gaso
+//   var battery = req.body.battery
+//   var IPX = req.body.IPX
+//   var movieSize = req.body.movieSize
+//   var other = req.body.other
+//   var Recommend = req.body.Recommend
+
+
+//   connection.query('INSERT INTO phone_table(pict,phoneName,size,gaso,battery,IPX,movieSize,other,Recommend)VALUES("'+ pict +'","'+ phoneName +'","'+ size +'""'+ gaso +'","'+ battery +'","'+ IPX +'","'+ movieSize +'","'+ other +'","'+ Recommend +'")',
+  
+//   (error,results)=>{
    
 
-    console.log(results);
+//     console.log(results);
     
     
-  })
-});
+//   })
+// });
 
 
 //管理データ削除
