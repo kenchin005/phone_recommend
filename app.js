@@ -60,9 +60,11 @@ app.get('/new',(req,res)=>{
 
 //携帯リスト
 app.get('/phone_list',(req,res)=>{
+  connection.query('SELECT * FROM test_table',(error,results)=>{
+    console.log(results);
   res.render('phone_list.ejs')
-})
-
+  })
+});
 //インサートテスト
 app.post('/uploads',(req,res)=>{
   connection.query('INSERT INTO test_table(text)VALUES("?")'),
