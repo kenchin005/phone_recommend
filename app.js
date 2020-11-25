@@ -65,7 +65,7 @@ app.get('/phone_list',(req,res)=>{
 
 //インサートテスト
 app.post('/uploads',(req,res)=>{
-  connection.query('INSERT INTO test_table(text)VALUES(?)'),
+  connection.query('INSERT INTO test_table(text)VALUES("?")'),
   (error,results)=>{
     console.log(results);
   }
