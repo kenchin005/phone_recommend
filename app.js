@@ -60,19 +60,25 @@ app.get('/new',(req,res)=>{
 
 //携帯リスト
 app.get('/phone_list',(req,res)=>{
-  connection.query('SELECT * FROM test_table',(error,results)=>{
-    console.log(results);
-  res.render('phone_list.ejs')
+  
+  connection.query('SELECT * FROM test_table',(error,results)=>{ 
+  res.render('phone_list.ejs',{test_table: results})
   })
 });
 //インサートテスト
 app.post('/uploads',(req,res)=>{
-  connection.query('INSERT INTO test_table(text)VALUES("?")'),
-  (error,results)=>{
-    console.log(results);
-  }
-})
 
+  console.log(req.body.text)
+
+  connection.query('INSERT INTO test_table(text)VALUES(?)'),
+  [req.body.text],(error,results)=>{
+    connection.query(
+      'SELECT * FROM test_table',
+      (error, results) => {
+
+    console.log(results);
+  })
+})
 
 
 
