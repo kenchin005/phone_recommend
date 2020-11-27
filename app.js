@@ -81,9 +81,8 @@ app.post('/uploads',(req,res)=>{
 
   connection.query('INSERT INTO test_table(text)VALUES(?)',
     [text],(error,results)=>{
-    connection.query('SELECT * FROM test_table',(error, results) => {
-        res.render("phone_list.ejs",{test_table: results});
-  })
+    
+      res.redirect("/phone_list")
 })
 })
 
