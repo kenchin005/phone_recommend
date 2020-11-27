@@ -79,7 +79,7 @@ app.post('/uploads',(req,res)=>{
     console.log(results);
   })
 })
-
+//1126ここまで
 
 
 // app.post('/uploads',(req,res)=>{
