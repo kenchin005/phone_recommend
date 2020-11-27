@@ -77,17 +77,15 @@ app.get('/phone_list',(req,res)=>{
 app.post('/uploads',(req,res)=>{
 
   
-  
+  var text = req.body.text
 
-  connection.query('INSERT INTO test_table(id,text)VALUES(NULL,:text)'),
-    (error,results)=>{
+  connection.query('INSERT INTO test_table(text)VALUES(?)',
+    [text],(error,results)=>{
     connection.query('SELECT * FROM test_table',(error, results) => {
         res.render("phone_list.ejs",{test_table: results});
   })
-}
 })
-
-//1126ここまで
+})
 
 
 // app.post('/uploads',(req,res)=>{
