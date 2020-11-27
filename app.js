@@ -3,6 +3,10 @@ const express = require('express');
 //expressモジュールを利用しアプリケーションオブジェクトappを作成
 const app = express();
 
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // var  multer   =  require('multer')
 // var  upload  =  multer({dest:'uploads /'} )
 
@@ -12,6 +16,8 @@ const app = express();
 
 //SQL接続
 const mysql = require('mysql');
+
+
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -65,20 +71,22 @@ app.get('/phone_list',(req,res)=>{
   res.render('phone_list.ejs',{test_table: results})
   })
 });
+
+
 //インサートテスト
 app.post('/uploads',(req,res)=>{
 
-  console.log(req.body.text)
+  
+  
 
-  connection.query('INSERT INTO test_table(text)VALUES(?)'),
-  [req.body.text],(error,results)=>{
-    connection.query(
-      'SELECT * FROM test_table',
-      (error, results) => {
-
-    console.log(results);
+  connection.query('INSERT INTO test_table(id,text)VALUES(NULL,:text)'),
+    (error,results)=>{
+    connection.query('SELECT * FROM test_table',(error, results) => {
+        res.render("phone_list.ejs",{test_table: results});
   })
+}
 })
+
 //1126ここまで
 
 
