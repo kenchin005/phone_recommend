@@ -11,8 +11,12 @@
     
     <h1>ケータイリスト</h1>
 <% test_table.forEach((phone)=>{ %>
-
-   <p> <%= phone.text %> </p>
+    <li>
+        <p> <%= phone.text %> </p>
+        <form action="/delete" method="post">
+        <input type="submit" value="削除">
+        </form>
+    </li>
 
 <% }) %>
 
