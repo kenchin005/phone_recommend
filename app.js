@@ -112,8 +112,9 @@ app.post('/uploads',(req,res)=>{
 // });
 
 //管理データ削除テスト
-app.post('/delete',(req,res)=>{
-    res.redirect('/phone_list')
+app.post('/delete:id',(req,res)=>{
+    console.log(req.params.id);
+    res.redirect('/phone_list');
 })
 
 
