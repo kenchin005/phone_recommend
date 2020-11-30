@@ -131,6 +131,12 @@ app.post('/delete/:id',(req,res)=>{
 
 //管理データ編集
 app.get("/edit/:id",(req,res)=>{
+
+  var id = req.params.id
+  //1201ここまで
+  //上記関数外で定義したい
+
+  connection.query('SELECT*FROM test_table WHERE id = ?',[])
   res.render('edit.ejs')
 })
 
