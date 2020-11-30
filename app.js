@@ -129,6 +129,11 @@ app.post('/delete/:id',(req,res)=>{
 //   res.redirect('/phone_list')
 // })
 
+//管理データ編集
+app.get("/edit/:id",(req,res)=>{
+  res.render('edit.ejs')
+})
+
 
 //サーバーを起動したら、リクエストを8000番ポートで待ち受ける設定。
 app.listen(8000, () => console.log('Example app listening on port 8000!'))
