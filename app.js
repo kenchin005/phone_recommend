@@ -116,7 +116,7 @@ app.post('/delete/:id',(req,res)=>{
 
   var id = req.params.id
 
-  connection.query('DELETE FROM test_tebale WHERE id = ?',
+  connection.query('DELETE FROM test_table WHERE id = ?',
   [id],(error,results)=>{
     res.redirect('/phone_list');
   })
