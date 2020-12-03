@@ -136,8 +136,11 @@ app.get("/edit/:id",(req,res)=>{
   //1201ここまで
   //上記関数外で定義したい
 
-  connection.query('SELECT*FROM test_table WHERE id = ?',[id])
-  res.render('edit.ejs',{test_table:results[0]})
+  connection.query('SELECT*FROM test_table WHERE id = ?',[id],(error,results)=>{
+
+    res.render('edit.ejs',{test_table:results[0]})
+  })
+  
 })
 
 
