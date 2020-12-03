@@ -143,6 +143,11 @@ app.get("/edit/:id",(req,res)=>{
   
 })
 
+//更新
+app.post("/update/:id",(req,res)=>{
+  connection.query("UPDATE test_table SET WHERE = ?",error//ここまで1203)
+})
+
 
 //サーバーを起動したら、リクエストを8000番ポートで待ち受ける設定。
 app.listen(8000, () => console.log('Example app listening on port 8000!'))
