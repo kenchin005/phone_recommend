@@ -73,13 +73,13 @@ app.get('/phone_list',(req,res)=>{
 });
 
 
-var text = req.body.text
-var id = req.params.id
+
+
 
 //インサートテスト
 app.post('/uploads',(req,res)=>{
 
-  
+  var text = req.body.text
   
 
   connection.query('INSERT INTO test_table(text)VALUES(?)',
@@ -117,7 +117,7 @@ app.post('/uploads',(req,res)=>{
 //管理データ削除テスト
 app.post('/delete/:id',(req,res)=>{
 
-  
+  var id = req.params.id
 
   connection.query('DELETE FROM test_table WHERE id = ?',
   [id],(error,results)=>{
@@ -135,7 +135,7 @@ app.post('/delete/:id',(req,res)=>{
 //管理データ編集
 app.get("/edit/:id",(req,res)=>{
 
-  //var id = req.params.id
+  var id = req.params.id
   //1201ここまで
   //上記関数外で定義したい
 
@@ -148,6 +148,10 @@ app.get("/edit/:id",(req,res)=>{
 
 //更新
 app.post("/update/:id",(req,res)=>{
+
+  var id = req.params.id;
+  var text = req.body.text
+
   connection.query("UPDATE test_table SET name = ? WHERE id = ?",
   [text,id],(error,results)=>{
     res.redirect("/phone_list")
