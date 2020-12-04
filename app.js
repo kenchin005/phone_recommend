@@ -145,7 +145,9 @@ app.get("/edit/:id",(req,res)=>{
 
 //更新
 app.post("/update/:id",(req,res)=>{
-  connection.query("UPDATE test_table SET WHERE = ?",error//ここまで1203)
+  connection.query("UPDATE test_table SET WHERE = ?",(error,results)=>{
+    res.redirect("/phone_list")
+  })
 })
 
 
