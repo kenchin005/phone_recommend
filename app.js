@@ -152,7 +152,7 @@ app.post("/update/:id",(req,res)=>{
   var id = req.params.id;
   var text = req.body.text
 
-  connection.query("UPDATE test_table SET name = ? WHERE id = ?",
+  connection.query("UPDATE test_table SET text = ? WHERE id = ?",
   [text,id],(error,results)=>{
     res.redirect("/phone_list")
   })
