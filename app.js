@@ -162,3 +162,40 @@ app.post("/update/:id",(req,res)=>{
 
 //サーバーを起動したら、リクエストを8000番ポートで待ち受ける設定。
 app.listen(8000, () => console.log('Example app listening on port 8000!'))
+
+
+
+
+ //MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48
+
+
+ function task() {
+  var spreadsheet = SpreadsheetApp.openById('1-HzZt_NCq64UuSutkfQhhhgP__qdwjMkzQ-NpQiIlXM');//タスクidに変更
+  var sheet3 = spreadsheet.getSheetByName("シート3");
+  
+  var lastrow = sheet3.getLastRow();
+  
+  var Today = Moment.moment(new Date());
+  var nokori = sheet3.getRange("B2").getValue();
+  var nokori1 = Today.add(nokori,'d').format();
+//  console.log(nokori);
+//  console.log(nokori1);
+  
+  var limit = Moment.moment(sheet3.getRange("C3").getValue()).format();
+  
+  console.log(limit);
+  
+  if(Moment.moment(nokori1).isAfter(limit)){
+    var range = sheet3.getRange("A1:B1").getValues();
+//    console.log(range);
+//    
+//    var color = "#FFFF00";
+//    range.setBackground(color);
+    
+  }
+  
+
+  
+  
+  
+}
